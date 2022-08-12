@@ -1,10 +1,9 @@
-import { getTestContext} from '../../build/testing/testEnvironment';
-import createMangoFind from './mango/createMangoFind';
+import { getTestContext } from '../../build/testing/testEnvironment'
+import createMangoFind from './mango/createMangoFind'
 
-
-const createMangoFunctions = contextId => {
-    let {server} = getTestContext(contextId);
-    server['find'] = createMangoFind(contextId);
+const createMangoFunctions = (contextId) => {
+	let { server } = getTestContext(contextId)
+	server['find'] = createMangoFind(contextId)
 }
 
-export default createMangoFunctions;
+export default createMangoFunctions

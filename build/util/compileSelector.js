@@ -5,27 +5,27 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 const selectorTypes = {
-  "$lt": "any",
-  "$gt": "any",
-  "$lte": "any",
-  "$gte": "any",
-  "$eq": "any",
-  "$ne": "any",
-  "$exists": "boolean",
-  "$type": "type",
-  "$in": "array",
-  "$nin": "array",
-  "$size": "integer",
-  "$mod": "mod",
-  "$regex": "regex",
-  "$and": "selectors",
-  "$or": "selectors",
-  "$not": "selector",
-  "$nor": "selectors",
-  "$all": "array",
-  "$elemMatch": "selector",
-  "$allMatch": "selector",
-  "$keyMapMatch": "selector"
+  $lt: 'any',
+  $gt: 'any',
+  $lte: 'any',
+  $gte: 'any',
+  $eq: 'any',
+  $ne: 'any',
+  $exists: 'boolean',
+  $type: 'type',
+  $in: 'array',
+  $nin: 'array',
+  $size: 'integer',
+  $mod: 'mod',
+  $regex: 'regex',
+  $and: 'selectors',
+  $or: 'selectors',
+  $not: 'selector',
+  $nor: 'selectors',
+  $all: 'array',
+  $elemMatch: 'selector',
+  $allMatch: 'selector',
+  $keyMapMatch: 'selector'
 };
 
 const getValidArgument = selectorKey => {
@@ -113,14 +113,14 @@ const compileSelector = (selector, file, index, selectorKey = false) => {
     } else {
       if (selectorType === 'array' || selectorType === 'string' || selectorType === 'number' || selectorType === 'boolean' || selectorType === 'null') {
         return {
-          "$eq": selector
+          $eq: selector
         };
       } else {
         if (Object.keys(selector).length) {
           return compileSelector(selector, file, index);
         } else {
           return {
-            "$eq": selector
+            $eq: selector
           };
         }
       }

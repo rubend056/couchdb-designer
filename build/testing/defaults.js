@@ -2,16 +2,16 @@
 
 const secObj = {
   members: {
-    roles: ["_admin"]
+    roles: ['_admin']
   },
   admins: {
-    roles: ["_admin"]
+    roles: ['_admin']
   }
 };
 const userCtx = {
   db: '',
   name: null,
-  roles: ["_admin"]
+  roles: ['_admin']
 };
 module.exports = {
   secObj,

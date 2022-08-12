@@ -32,14 +32,14 @@ const createTestViewFunction = (contextId, viewName, context) => {
       } else {
         if (partition) {
           throw {
-            error: "query_parse_error",
-            reason: "`partition` parameter is not supported in this design doc"
+            error: 'query_parse_error',
+            reason: '`partition` parameter is not supported in this design doc'
           };
         } else {
           if (context.options && context.options.partitioned || database.partitioned && !context.options) {
             throw {
-              error: "query_parse_error",
-              reason: "`partition` parameter is mandatory for queries to this view."
+              error: 'query_parse_error',
+              reason: '`partition` parameter is mandatory for queries to this view.'
             };
           }
 

@@ -31,7 +31,7 @@ const emitted = contextId => {
 
 const logged = contextId => {
   let buildIns = (0, _testEnvironment.getTestContext)(contextId).buildIns;
-  let log = "";
+  let log = '';
   buildIns.environmentLog.mock.calls.forEach(params => {
     log += `[info] Log :: ${params[0]}\n`;
   });
@@ -81,8 +81,8 @@ const database = (contextId, id) => {
       database
     } = (0, _testEnvironment.getTestContext)(contextId);
     let result = {
-      error: "not_found",
-      reason: "missing"
+      error: 'not_found',
+      reason: 'missing'
     };
 
     for (let doc of database.data) {

@@ -29,9 +29,9 @@ const supplementRequest = (request = {}, id, contextId, uri, preSupplement = fal
       secObj
     });
     let headers = {
-      Accept: "*/*",
-      Host: "localhost:5984",
-      "User-Agent": "couchdb-designer/testing environment"
+      Accept: '*/*',
+      Host: 'localhost:5984',
+      'User-Agent': 'couchdb-designer/testing environment'
     };
     let info = {
       db_name: database.name,
@@ -50,7 +50,7 @@ const supplementRequest = (request = {}, id, contextId, uri, preSupplement = fal
       committed_update_seq: update_seq
     };
     req.userCtx = req.userCtx ? req.userCtx : userCtx;
-    req.body = req.body ? req.body : "undefined";
+    req.body = req.body ? req.body : 'undefined';
     req.headers = req.headers ? req.headers : headers;
     req.form = req.form ? req.form : {};
     req.query = req.query ? req.query : {};

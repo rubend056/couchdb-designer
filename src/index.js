@@ -1,4 +1,4 @@
-import designer from './designer';
-import createTestServer from './createTestServer';
+import designer from './designer'
+import createTestServer from './createTestServer'
 
-module.exports = { designer, createTestServer };
+module.exports = { designer, createTestServer }

@@ -136,12 +136,12 @@ const testEnvironment = contextId => {
       changes: [],
       validators: [],
       indexes: [{
-        "ddoc": null,
-        "name": "_all_docs",
-        "type": "special",
-        "def": {
-          "fields": [{
-            "_id": "asc"
+        ddoc: null,
+        name: '_all_docs',
+        type: 'special',
+        def: {
+          fields: [{
+            _id: 'asc'
           }]
         }
       }],

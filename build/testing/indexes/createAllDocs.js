@@ -40,8 +40,8 @@ const createAllDocs = contextId => {
         }).forEach(pdoc => map(pdoc));
       } else {
         throw {
-          error: "bad_request",
-          reason: "database is not partitioned"
+          error: 'bad_request',
+          reason: 'database is not partitioned'
         };
       }
     } else {

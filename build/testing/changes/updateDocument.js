@@ -69,8 +69,8 @@ const update = (contextId, doc, user) => {
 
     if (idParts.length !== 2) {
       throw {
-        error: "illegal_docid",
-        reason: "Doc id must be of form partition:id"
+        error: 'illegal_docid',
+        reason: 'Doc id must be of form partition:id'
       };
     }
   }
@@ -98,8 +98,8 @@ const update = (contextId, doc, user) => {
       return change;
     } else {
       throw {
-        error: "conflict",
-        reason: "Document update conflict."
+        error: 'conflict',
+        reason: 'Document update conflict.'
       };
     }
   } else {

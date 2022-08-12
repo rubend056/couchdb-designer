@@ -12,7 +12,7 @@ var _compareAny = _interopRequireDefault(require("../../util/compareAny"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const filters = {
-  "$eq": (docValue, filterValue) => {
+  $eq: (docValue, filterValue) => {
     if (docValue !== undefined) {
       if ((0, _compareAny.default)(docValue, filterValue) === 0) {
         return true;
@@ -21,7 +21,7 @@ const filters = {
 
     return false;
   },
-  "$and": (docValue, filterValue) => {
+  $and: (docValue, filterValue) => {
     let result = true;
 
     for (let filter of filterValue) {
@@ -34,7 +34,7 @@ const filters = {
 
     return result;
   },
-  "$lt": (docValue, filterValue) => {
+  $lt: (docValue, filterValue) => {
     if (docValue !== undefined) {
       if ((0, _compareAny.default)(docValue, filterValue) < 0) {
         return true;
@@ -43,7 +43,7 @@ const filters = {
 
     return false;
   },
-  "$lte": (docValue, filterValue) => {
+  $lte: (docValue, filterValue) => {
     if (docValue !== undefined) {
       if ((0, _compareAny.default)(docValue, filterValue) <= 0) {
         return true;
@@ -52,7 +52,7 @@ const filters = {
 
     return false;
   },
-  "$gt": (docValue, filterValue) => {
+  $gt: (docValue, filterValue) => {
     if (docValue !== undefined) {
       if ((0, _compareAny.default)(docValue, filterValue) > 0) {
         return true;
@@ -61,7 +61,7 @@ const filters = {
 
     return false;
   },
-  "$gte": (docValue, filterValue) => {
+  $gte: (docValue, filterValue) => {
     if (docValue !== undefined) {
       if ((0, _compareAny.default)(docValue, filterValue) >= 0) {
         return true;
@@ -70,7 +70,7 @@ const filters = {
 
     return false;
   },
-  "$ne": (docValue, filterValue) => {
+  $ne: (docValue, filterValue) => {
     if (docValue !== undefined) {
       if ((0, _compareAny.default)(docValue, filterValue) !== 0) {
         return true;
@@ -79,15 +79,15 @@ const filters = {
 
     return false;
   },
-  "$exists": (docValue, filterValue) => {
+  $exists: (docValue, filterValue) => {
     let exists = docValue !== undefined;
     return exists === filterValue;
   },
-  "$type": (docValue, filterValue) => {
+  $type: (docValue, filterValue) => {
     let docType = docValue === null ? 'null' : Array.isArray(docValue) ? 'array' : typeof docValue;
     return docType === filterValue;
   },
-  "$in": (docValue, filterValue) => {
+  $in: (docValue, filterValue) => {
     if (docValue !== undefined) {
       for (let element of filterValue) {
         if ((0, _compareAny.default)(element, docValue) === 0) {
@@ -98,17 +98,17 @@ const filters = {
 
     return false;
   },
-  "$nin": (docValue, filterValue) => {
+  $nin: (docValue, filterValue) => {
     return !filters['$in'](docValue, filterValue);
   },
-  "$size": (docValue, filterValue) => {
+  $size: (docValue, filterValue) => {
     if (docValue !== undefined && Array.isArray(docValue)) {
       return docValue.length === filterValue;
     }
 
     return false;
   },
-  "$mod": (docValue, filterValue) => {
+  $mod: (docValue, filterValue) => {
     if (docValue !== undefined && Number.isInteger(docValue)) {
       return docValue % filterValue[0] === filterValue[1];
     }
@@ -117,18 +117,18 @@ const filters = {
   },
 
   /*
-   $regex is not 100% reliable becouse of differencies among PCRE library and node.js regular expression.
-   The usage of $regex for partial_filter_selector not recommended.
-   */
-  "$regex": (docValue, filterValue) => {
-    if (docValue !== undefined && typeof docValue === "string") {
+  $regex is not 100% reliable becouse of differencies among PCRE library and node.js regular expression.
+  The usage of $regex for partial_filter_selector not recommended.
+  */
+  $regex: (docValue, filterValue) => {
+    if (docValue !== undefined && typeof docValue === 'string') {
       let regex = new RegExp(filterValue);
       return regex.test(docValue);
     }
 
     return false;
   },
-  "$or": (docValue, filterValue) => {
+  $or: (docValue, filterValue) => {
     let result = false;
 
     for (let filter of filterValue) {
@@ -141,13 +141,13 @@ const filters = {
 
     return result;
   },
-  "$not": (docValue, filterValue) => {
+  $not: (docValue, filterValue) => {
     return !mangoFilter(docValue, filterValue);
   },
-  "$nor": (docValue, filterValue) => {
-    return !filters["or"](docValue, filterValue);
+  $nor: (docValue, filterValue) => {
+    return !filters['or'](docValue, filterValue);
   },
-  "$all": (docValue, filterValue) => {
+  $all: (docValue, filterValue) => {
     if (docValue !== undefined && Array.isArray(docValue)) {
       for (let value of filterValue) {
         let include = false;
@@ -170,7 +170,7 @@ const filters = {
 
     return false;
   },
-  "$elemMatch": (docValue, filterValue) => {
+  $elemMatch: (docValue, filterValue) => {
     if (docValue !== undefined && Array.isArray(docValue)) {
       for (let value of docValue) {
         if (mangoFilter(value, filterValue)) {
@@ -181,7 +181,7 @@ const filters = {
 
     return false;
   },
-  "$allMatch": (docValue, filterValue) => {
+  $allMatch: (docValue, filterValue) => {
     if (docValue !== undefined && Array.isArray(docValue)) {
       let result = true;
 
@@ -198,8 +198,8 @@ const filters = {
 
     return false;
   },
-  "$keyMapMatch": (docValue, filterValue) => {
-    if (docValue !== undefined && typeof docValue === "object" && !Array.isArray(docValue)) {
+  $keyMapMatch: (docValue, filterValue) => {
+    if (docValue !== undefined && typeof docValue === 'object' && !Array.isArray(docValue)) {
       let keys = Object.keys(docValue);
 
       for (let key of keys) {

@@ -1,10 +1,10 @@
 import { expect, jest, test } from '@jest/globals';
 import fs from 'fs/promises';
-import createDeisgnDocument from '../src/createDeisgnDocument';
+import createDeisgnDocument from '../src/createDesignDocument';
 import designer from '../src/designer';
 
 jest.mock('fs/promises');
-jest.mock('../src/createDeisgnDocument');
+jest.mock('../src/createDesignDocument');
 
 describe('designer', () => {
     
